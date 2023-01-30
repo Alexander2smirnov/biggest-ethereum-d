@@ -21,4 +21,3 @@ forge-out/
 *.log
 .eslintcache
 .eslint.local.json
-hardhat.config.js

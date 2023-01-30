@@ -1,6 +1,6 @@
 const hre = require("hardhat");
 
-require('dotenv').config()
+require('dotenv').config();
 
 async function main() {
   const WETH = await hre.ethers.getContractFactory("WETH");
