@@ -6,6 +6,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
  
 uint constant MIN_GAP = 1 seconds;
 uint constant MAX_GAP = 5 minutes;
+uint constant START_GAP = 5 minutes;
  
 /** 
  * @title Biggest-WETH-Dick
@@ -19,7 +20,7 @@ contract BiggestWethDick is Ownable {
  
     bool public isOver;
     uint public totalValue;
-    uint public timeGap = 1 minutes;
+    uint public timeGap = START_GAP;
     address tokenAddress;
     CurrentBid public currentBid;
  
@@ -58,7 +59,7 @@ contract BiggestWethDick is Ownable {
  
     function changeGap(uint newGap) public onlyOwner() {
         require(
-            newGap < MAX_GAP && newGap > MIN_GAP,
+            newGap <= MAX_GAP && newGap >= MIN_GAP,
             "Gap should be in a set range"
         );
  
